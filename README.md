@@ -1,2 +1,13 @@
-# probability-calculator-tool
-Probability-Calculator-tool is a Python package designed to simplify the calculation of various probability distributions and events. With functionalities for joint, conditional, cumulative, normal, and binomial distributions, this tool is perfect for students, educators, and professionals in statistics and data science.
+# Probability Calculator
+
+The `Probability Calculator` is a Python package for calculating probabilities of events, including joint, conditional, cumulative, normal, and binomial distributions.
+
+## Features
+- Basic probability calculations
+- Joint and conditional probability
+- Cumulative probability
+- Normal and binomial distributions
+
+## Installation
+```bash
+pip install -e 
