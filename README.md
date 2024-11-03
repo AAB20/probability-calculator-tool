@@ -10,4 +10,4 @@ The `Probability Calculator` is a Python package for calculating probabilities o
 
 ## Installation
 ```bash
-pip install -e 
+git clone https://github.com/AAB20/probability-calculator-tool 
