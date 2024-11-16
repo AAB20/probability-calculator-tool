@@ -103,19 +103,20 @@ class ProbabilityCalculator:
         """
         return prob_a + prob_b - prob_a_and_b
 
-    def store_large_number(self, number: int) -> Decimal:
+    def store_large_number(self, exponent: int) -> Decimal:
         """
-        Stores and returns a large number as a Decimal for high precision.
+        Stores a large number represented by 10^exponent as a Decimal for high precision.
         
         Args:
-            number (int): The large number to store.
+            exponent (int): The exponent of the large number to store (e.g., for googolplex 10^100).
         
         Returns:
-            Decimal: The large number as a Decimal.
+            Decimal: The large number 10^exponent as a Decimal.
         """
-        if number < 0:
-            raise ValueError("Large number must be non-negative.")
-        return Decimal(number)
+        if exponent < 0:
+            raise ValueError("Exponent must be non-negative.")
+        # Storing the large number 10^exponent
+        return Decimal(10) ** exponent
 
     # Additional probability distributions
     def normal_distribution(self, x: float, mean: float, std_dev: float) -> Decimal:
@@ -154,8 +155,12 @@ class ProbabilityCalculator:
 
 # Example usage
 if __name__ == "__main__":
-    total_outcomes = 10 ** 100  # Set the total outcomes, even as large as Googolplex
-    calculator = ProbabilityCalculator(total_outcomes)
+    googolplex_exponent = 10 ** 100  # Exponent for Googolplex (10^10^100)
+    calculator = ProbabilityCalculator(10 ** 100)  # Set total outcomes for Googol (10^100)
+
+    # Store and print large number (googolplex)
+    large_number = calculator.store_large_number(googolplex_exponent)
+    print("Stored large number (Googolplex):", large_number)
 
     # Calculate specific probability
     probability = calculator.calculate_probability(1)
@@ -176,10 +181,6 @@ if __name__ == "__main__":
     prob_a_given_b = calculator.calculate_probability(2)  # Probability of A given B
     conditional_probability = calculator.calculate_conditional_probability(prob_a, prob_b, prob_a_given_b)
     print("Conditional probability P(A|B):", conditional_probability)
-
-    # Store large number with high precision
-    large_number = calculator.store_large_number(10 ** 50)
-    print("Stored large number with high precision:", large_number)
 
     # Calculate probability for a normal distribution
     normal_prob = calculator.normal_distribution(0, 0, 1)  # Normal distribution with mean 0 and std dev 1
